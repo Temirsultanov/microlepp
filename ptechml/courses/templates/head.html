@@ -12,10 +12,12 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="h1muha">Django project is started</h1>
-        <a href="{%url 'index' %}">Home page</a>
-        <a href="">Courses</a>
-        <a href="">Login</a>
+        <h1 class="h1muha">Micro Learning Django Project</h1>
+        <ul>
+            <li><a href="{% url 'index' %}">Home page</a></li>
+            <li><a href="{% url 'courses' %}">Courses</a></li>
+            <li><a href="">Login</a></li>
+        </ul>
         {% block content%}{% endblock %}
     </div>
 </body>

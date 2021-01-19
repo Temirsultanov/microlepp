@@ -1,9 +1,8 @@
 from django.contrib import admin
-from .models import Course, Card, UsersStats
-
+from .models import Course, UsersStats
+from .models import Card
 # admin.site.register(Card)
 # admin.site.register(UsersStats)
-# Register your models here.
 class CardInline(admin.StackedInline):
     model = Card
     fields = ['title', 'text', 'queue']
