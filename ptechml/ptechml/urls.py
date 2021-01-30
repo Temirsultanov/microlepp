@@ -25,5 +25,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('courses/', include('courses.urls')),
     path('', RedirectView.as_view(url='courses/', permanent=True)),
+
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]

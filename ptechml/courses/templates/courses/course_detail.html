@@ -1,8 +1,24 @@
 {% extends "head.html" %}
 {% block content %}
-    <h1>{{ course.title }}</h1>
-    <p style="width: 500px">{{ course.desc }}</p>
-    {% for card in course.card_set.all %}
-        <a href="{{ card.get_absolute_url }}" class="btn btn-primary">Начать курс!</a>
-    {% endfor %}
+    <section class="section section__course__wrap">
+        <div class="container">
+            <div class="section__course section__course-detail">
+                <div class="scourse__top">
+                    <h1 class="h1 scourse__title">{{course.title}}</h1>
+                </div>
+                <div class="scourse__bottom">
+                    <div class="scourse__left">
+                        <p class="course__text">
+                            {{course.desc}}
+                        </p>
+                        <a href="{% url 'cards' course.id %}" class="button course__link">Начать курс!</a>
+                    </div>
+                    <div class="scourse__right courseDetail__image">
+                        {% load static %}
+                        <img src="{% static course.img %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

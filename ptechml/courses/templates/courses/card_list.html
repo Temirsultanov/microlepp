@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "head.html" %}
+{% block content %}
+    {% for card in card_list %}
+            <div class="card" style="margin-top: 100px">
+                {% if card.queue != 1 %}
+                    <button style="display: block;" href="{{ card.get_absolute_url }}" class="btn btn-primary">Предыдущая карточка</button>
+                {% endif %}
+                <h2 style="margin-top: 0px">{{ card.title }}</h2>
+                <p>{{ card.text }}</p>
+                {% if forloop.last == False %}
+                    <a href="{{ card.get_absolute_url }}" class="btn btn-primary">Следующая карточка</a>
+                {% else %}
+                    <a href="{{ card.get_absolute_url }}" class="btn btn-primary">Завершить курс</a>
+                {% endif %}
+            </div>
+    {% endfor %}
+{% endblock %}

@@ -18,6 +18,6 @@ class CardAdmin(admin.ModelAdmin):
 
 @admin.register(UsersStats)
 class UsersStatsAdmin(admin.ModelAdmin):
-    list_display = ('course', 'status', 'time')
+    list_display = ('course', 'pupil', 'status', 'time')
 
 
